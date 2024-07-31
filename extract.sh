@@ -34,4 +34,5 @@ echo "Unzipping"
 
 unzip bfv2.zip
 
+sudo install.sh
 
