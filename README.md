@@ -24,7 +24,7 @@ sudo ./extract.sh
 ## Usage :rocket:
 
 ```
-python bruteforce.py
+python bruteforceV2.py
 ```
 <p align = "center">
 <img src="https://github.com/mython-dev/ssh-brute-force/blob/main/screenshots/screenshots.png" width="600" height="700">
