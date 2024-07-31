@@ -17,7 +17,7 @@ git clone https://github.com/jamieduk/SSH-BruteForce_V2_Python3
 ## Setup :bulb:
 
 ```
-cd ssh-brute-force
+cd SSH-BruteForce_V2_Python3
 sudo ./install.sh
 ```
 ## Usage :rocket:
