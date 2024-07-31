@@ -76,7 +76,7 @@ logo=f'''
 
 print(logo)
 
-# Variable tab 
+# Variable tab
 TAB='\t'
 
 sprint(f'''{TAB}{cyan}You may stop this individual, but you can't stop us all... after all, we're all alike.\n''')
@@ -144,6 +144,12 @@ def main():
                 print(f"{error} Too many queries. Waiting two minutes...")
                 time.sleep(120)
                 return False
+        except paramiko.ssh_exception.NoValidConnectionsError:
+            print(f"{error}Unable to connect to port 22 on {host}. Skipping to next host.")
+            return False
+        except Exception as e:
+            print(f"{error}An unexpected error occurred: {e}. Skipping to next host.")
+            return False
         else:
             sprint(f"\n{success}[{port}] host: {host} login: {username} password: {password}\n")
             print(f"{success}I saved it to the file credentials.txt\n{info}You can check: cat credentials.txt\n")
