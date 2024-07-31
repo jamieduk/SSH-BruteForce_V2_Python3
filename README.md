@@ -18,7 +18,8 @@ git clone https://github.com/jamieduk/SSH-BruteForce_V2_Python3
 
 ```
 cd SSH-BruteForce_V2_Python3
-sudo ./install.sh
+
+sudo ./extract.sh
 ```
 ## Usage :rocket:
 
